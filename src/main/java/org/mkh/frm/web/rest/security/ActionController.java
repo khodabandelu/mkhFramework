@@ -40,8 +40,14 @@ public class ActionController {
     @RequestMapping(value = "/listGrid", method = RequestMethod.GET)
     public PagingResult<ActionViewModel> list(
             @RequestParam PagingRequest searchOption) {
-        PagingResult<Action> reauthenticateFormsList = actionService
-                .getAllGridList(searchOption);
+        PagingResult<Action> reauthenticateFormsList = actionService.getAllGridList(searchOption);
+        return ModelMapper.mapQueryResult(reauthenticateFormsList, ActionViewModel.class);
+    }
+
+    @RequestMapping(value = "/public/listGrid", method = RequestMethod.GET)
+    public PagingResult<ActionViewModel> publicList(
+            @RequestParam PagingRequest searchOption) {
+        PagingResult<Action> reauthenticateFormsList = actionService.getAllGridList(searchOption);
         return ModelMapper.mapQueryResult(reauthenticateFormsList, ActionViewModel.class);
     }
 

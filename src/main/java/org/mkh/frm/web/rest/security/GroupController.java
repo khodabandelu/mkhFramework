@@ -26,6 +26,11 @@ public class GroupController {
         return groupService.listGrid(groupName, actionId, searchOption);
     }
 
+    @RequestMapping(value = "/public/list", method = RequestMethod.GET)
+    public PagingResult<Group> publicList(String groupName, Long actionId, PagingRequest searchOption) {
+        return groupService.listGrid(groupName, actionId, searchOption);
+    }
+
     @RequestMapping(value = "/listAll", method = RequestMethod.GET)
     public List<Group> list() {
         return groupService.getAll();

@@ -24,7 +24,7 @@ public class UserController {
     private IUserService userService;
 
     @RequestResponseView(UserViewModel.class)
-    @GetMapping(value = "/list")
+    @GetMapping(value = "/public/list")
     public PagingResult<User> listGrid(PagingRequest searchOption) {
         return userService.getAllGrid(searchOption);
     }
